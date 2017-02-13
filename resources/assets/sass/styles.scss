@@ -1,7 +1,9 @@
+@import './_config';
 @import './_variables';
 
 body {
 		background-color: $color-primary;
+		font-family: 'Open sans', sans-serif;
 }
 
 .todo-container {
@@ -12,7 +14,7 @@ body {
 				background-color: darken($color-border, 60%);
 				border: 0;
 				height: 6rem;
-				color: $color-light;
+				color: darken($color-light, 30%);
 		}
 
 		.list-data {
@@ -21,9 +23,13 @@ body {
 				list-style-type: none;
 
 				li {
+						&:first-child {
+								border-top: 0;
+						}
 						border-top: $tiny-border darken($color-border, 50%);
-						color: darken($color-light, 50%);
+						color: darken($color-light, 20%);
 						padding: 2rem 0;
+						font-size: $big-font;
 				}
 		}
 }
