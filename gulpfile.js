@@ -8,7 +8,7 @@ elixir((mix) => {
     files: ['public/css/*.css', 'public/js/*.js'],
     open: false,
     proxy: {
-      target: 'http://localhost:1000'
+      target: 'http://localhost:2000'
     },
     port: 4000
   })

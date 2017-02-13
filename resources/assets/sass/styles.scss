@@ -21,15 +21,36 @@ body {
 				padding: 0;
 				margin-top: 2rem;
 				list-style-type: none;
+        overflow: scroll;
+        height: 38rem;
 
 				li {
-						&:first-child {
-								border-top: 0;
-						}
-						border-top: $tiny-border darken($color-border, 50%);
+            display: flex;
+            justify-content: space-between;
+            &:first-child {
+                border-top: $tiny-border darken($color-border, 50%);
+                border-bottom: $tiny-border darken($color-border, 50%);
+            }
+						border-bottom: $tiny-border darken($color-border, 50%);
 						color: darken($color-light, 20%);
 						padding: 2rem 0;
 						font-size: $big-font;
+            transition: .3s ease all;
+
+            &:hover {
+                background-color: darken($color-border, 50%);
+                padding-left: 1rem;
+                .list-delete {
+                    display: block;
+                }
+            }
+
+            .list-delete {
+                display: none;
+                .delete-btn {
+                    padding-right: 1rem;
+                }
+            }
 				}
 		}
 }

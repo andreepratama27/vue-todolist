@@ -7,15 +7,21 @@
   <div>
     <div v-if="!isLoading">loading</div>
     <ul class='list-data'>
-      <li v-for="i in tasks" @click="delTask(i.id)">
-        {{ i.task }}
+      <li v-for="i in tasks">
+        <div class='list-text'>
+            {{ i.task }}
+        </div>
+        <div class='list-delete'>
+            <div class='delete-btn'>
+                <i class='fa fa-trash'></i>
+            </div>
+        </div>
       </li>
     </ul>
   </div>
 </template>
 
 <script>
-  import axios from 'axios'
   import { mapGetters, mapActions } from 'vuex'
 
   export default {
