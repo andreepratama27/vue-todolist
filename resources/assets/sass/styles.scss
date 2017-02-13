@@ -1,0 +1,29 @@
+@import './_variables';
+
+body {
+		background-color: $color-primary;
+}
+
+.todo-container {
+		margin-top: 3rem;
+
+		.form-control {
+				box-shadow: none;
+				background-color: darken($color-border, 60%);
+				border: 0;
+				height: 6rem;
+				color: $color-light;
+		}
+
+		.list-data {
+				padding: 0;
+				margin-top: 2rem;
+				list-style-type: none;
+
+				li {
+						border-top: $tiny-border darken($color-border, 50%);
+						color: darken($color-light, 50%);
+						padding: 2rem 0;
+				}
+		}
+}
