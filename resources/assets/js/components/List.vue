@@ -13,7 +13,7 @@
         </div>
         <div class='list-delete'>
             <div class='delete-btn'>
-                <i class='fa fa-trash'></i>
+                <i class='fa fa-trash' @click="this.delTask(i.id)"></i>
             </div>
         </div>
       </li>
