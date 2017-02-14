@@ -39,8 +39,6 @@
 
     data () {
       return {
-        isLoading: false
-      }
     },
 
     computed: {
