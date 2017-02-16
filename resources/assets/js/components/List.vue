@@ -33,8 +33,8 @@
                 'getTask'
             ]),
 
-            delTask (id) {
-                this.$store.dispatch('delTask', id)
+            delTask (i) {
+                this.$store.dispatch('delTask', i)
             }
         }
     }
