@@ -1,60 +1,41 @@
-<style>
-  .hide {
-    display: none;
-  }
-</style>
 <template>
-  <div>
-    <div v-if="!isLoading">loading</div>
     <ul class='list-data'>
-      <li v-for="i in tasks">
-        <div class='list-text'>
-            {{ i.task }}
-        </div>
-        <div class='list-delete'>
-            <div class='delete-btn'>
-                <i class='fa fa-trash' @click="delTask(i.id)"></i>
+        <li v-for="i in tasks">
+            <div class='list-text'>
+                {{ i.task }}
             </div>
-        </div>
-      </li>
+            <div class='list-delete'>
+                <div class='delete-btn' @click='delTask(i.id)'>
+                    <i class='fa fa-trash'>
+                    </i>
+                </div>
+            </div>
+        </li>
     </ul>
-  </div>
 </template>
 
 <script>
-  import { mapGetters, mapActions } from 'vuex'
+    import { mapGetters, mapActions } from 'vuex'
 
-  export default {
-    created () {
-      this.getTask()
-    },
+    export default {
+        mounted () {
+            this.getTask()
+        },
 
-    beforeUpdate () {
-      this.isLoading = true
-    },
+        computed: {
+            ...mapGetters([
+                'tasks'
+            ])
+        },
 
-    updated () {
-      this.isLoading = false
-    },
+        methods: {
+            ...mapActions([
+                'getTask'
+            ]),
 
-    data () {
-      return {
-    },
-
-    computed: {
-      ...mapGetters([
-        'tasks'
-      ])
-    },
-
-    methods: {
-      ...mapActions([
-        'getTask'
-      ]),
-
-      delTask(id) {
-        this.$store.dispatch('delTask', id)
-      }
+            delTask (id) {
+                this.$store.dispatch('delTask', id)
+            }
+        }
     }
-  }
 </script>

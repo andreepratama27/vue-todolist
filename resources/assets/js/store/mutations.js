@@ -5,7 +5,7 @@ export default {
   },
 
   ADD_TASK (state, data) {
-    state.tasks.unshift({task: data.task})
+    state.tasks.push({task: data.task})
   },
 
   DEL_TASK (state, data) {
