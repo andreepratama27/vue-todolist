@@ -14,10 +14,14 @@
 
     methods: {
       addingTask () {
-          axios.post('http://589c33e2e85b861200daac18.mockapi.io/api/v1/tasks', {data: this.task })
-              .then(res => {
-              })
-      }
+								axios.post('http://589c33e2e85b861200daac18.mockapi.io/api/v1/tasks', {data: this.task })
+										.then(res => {
+														console.log(res)
+										})
+										.catch(err => {
+														throw err
+										})
+						}
     }
   }
 </script>

@@ -13,15 +13,9 @@ export const getTask = ({ commit }) => {
 }
 
 export const addTask = ({ commit }, data) => {
-    .then((res) => {
-      commit(types.ADD_TASK, res.data)
-    })
-
-    .catch(err => {
-      throw err
-    })
+  commit(types.ADD_TASK, res.data)
 }
 
 export const delTask = ({ commit }, data) => {
-    commit(types.DEL_TASK, data)
+  commit(types.DEL_TASK, data)
 }
