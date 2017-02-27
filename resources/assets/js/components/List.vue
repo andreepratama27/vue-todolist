@@ -1,11 +1,11 @@
 <template>
     <ul class='list-data'>
-        <li v-for="i in tasks">
+        <li v-for="i, index in tasks">
             <div class='list-text'>
                 {{ i.task }}
             </div>
             <div class='list-delete'>
-                <div class='delete-btn' @click='delTask(i.id)'>
+                <div class='delete-btn' @click='delTask(index)'>
                     <i class='fa fa-trash'>
                     </i>
                 </div>
@@ -16,6 +16,7 @@
 
 <script>
     import { mapGetters, mapActions } from 'vuex'
+		import axios from 'axios'
 
     export default {
         mounted () {
@@ -34,7 +35,7 @@
             ]),
 
             delTask (i) {
-                this.$store.dispatch('delTask', i)
+								console.log(i)
             }
         }
     }

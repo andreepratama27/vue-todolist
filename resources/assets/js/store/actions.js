@@ -24,12 +24,5 @@ export const addTask = ({ commit }, data) => {
 }
 
 export const delTask = ({ commit }, data) => {
-  axios.delete('http://589c33e2e85b861200daac18.mockapi.io/api/v1/tasks/' + data)
-    .then((res) => {
-      commit(types.DEL_TASK, res)
-    })
-
-    .catch(err => {
-      throw err
-    })
+    commit(types.DEL_TASK, data)
 }

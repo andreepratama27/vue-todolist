@@ -9,7 +9,6 @@ export default {
   },
 
   DEL_TASK (state, data) {
-    delete state.tasks[data.id]
-    return state.tasks
+    state.tasks.splice(data, 1)
   }
 }
