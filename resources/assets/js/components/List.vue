@@ -6,8 +6,7 @@
             </div>
             <div class='list-delete'>
                 <div class='delete-btn' @click='deleteTask(index, i.id)'>
-                    <i class='fa fa-trash'>
-                    </i>
+                    <i class='fa fa-trash'></i>
                 </div>
             </div>
         </li>
@@ -36,7 +35,6 @@
             ]),
 
             deleteTask (index, id) {
-								console.log(index, id)
 								axios.delete('http://589c33e2e85b861200daac18.mockapi.io/api/v1/tasks/' + id)
 									.then(res => {
 											this.delTask(index)

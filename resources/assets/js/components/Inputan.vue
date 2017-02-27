@@ -5,6 +5,9 @@
 </template>
 
 <script>
+		import axios from 'axios'
+		import { mapActions } from 'vuex'
+
   export default {
     data () {
       return {
@@ -13,14 +16,19 @@
     },
 
     methods: {
+						...mapActions([
+								'addTask'
+						]),
+
       addingTask () {
-								axios.post('http://589c33e2e85b861200daac18.mockapi.io/api/v1/tasks', {data: this.task })
+								axios.post('http://589c33e2e85b861200daac18.mockapi.io/api/v1/tasks', {task: this.task })
 										.then(res => {
-														console.log(res)
+														this.addTask(res.data)
 										})
 										.catch(err => {
 														throw err
 										})
+								this.task = ''
 						}
     }
   }

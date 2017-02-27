@@ -13,7 +13,7 @@ export const getTask = ({ commit }) => {
 }
 
 export const addTask = ({ commit }, data) => {
-  commit(types.ADD_TASK, res.data)
+  commit(types.ADD_TASK, data)
 }
 
 export const delTask = ({ commit }, data) => {
