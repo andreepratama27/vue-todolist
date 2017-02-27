@@ -13,7 +13,6 @@ export const getTask = ({ commit }) => {
 }
 
 export const addTask = ({ commit }, data) => {
-  axios.post('http://589c33e2e85b861200daac18.mockapi.io/api/v1/tasks', data.id)
     .then((res) => {
       commit(types.ADD_TASK, res.data)
     })

@@ -5,7 +5,7 @@
                 {{ i.task }}
             </div>
             <div class='list-delete'>
-                <div class='delete-btn' @click='delTask(index)'>
+                <div class='delete-btn' @click='deleteTask(index, i.id)'>
                     <i class='fa fa-trash'>
                     </i>
                 </div>
@@ -31,11 +31,20 @@
 
         methods: {
             ...mapActions([
-                'getTask'
+								'getTask',
+								'delTask'
             ]),
 
-            delTask (i) {
-								console.log(i)
+            deleteTask (index, id) {
+								console.log(index, id)
+								axios.delete('http://589c33e2e85b861200daac18.mockapi.io/api/v1/tasks/' + id)
+									.then(res => {
+											this.delTask(index)
+									})
+
+									.catch(err => {
+											throw err
+									})
             }
         }
     }

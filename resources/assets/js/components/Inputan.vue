@@ -1,6 +1,6 @@
 <template>
   <div>
-    <input class='form-control' type="text" v-model="task" @keyup.enter="addTask()">
+    <input class='form-control' type="text" v-model="task" @keyup.enter="addingTask()">
   </div>
 </template>
 
@@ -13,9 +13,10 @@
     },
 
     methods: {
-      addTask () {
-        this.$store.dispatch('addTask', { task: this.task })
-        this.task = ''
+      addingTask () {
+          axios.post('http://589c33e2e85b861200daac18.mockapi.io/api/v1/tasks', {data: this.task })
+              .then(res => {
+              })
       }
     }
   }
