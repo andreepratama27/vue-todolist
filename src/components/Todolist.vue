@@ -2,9 +2,7 @@
     <div class="container">
         <div class="column">
             <div class="field">
-                <label for="" class="label">
-                    Task
-                </label>
+                <label for="" class="label">Task</label>
                 <div class="control">
                     <input v-model="task" type="" class="input" placeholder="Insert a task"
                     @keydown="addTodo">
@@ -35,8 +33,8 @@ import { mapGetters, mapActions } from 'vuex'
 export default {
   computed: {
     ...mapGetters([
-      'todos'
-    ])
+      'todos',
+    ]),
   },
 
   data() {
@@ -48,18 +46,18 @@ export default {
 
   methods: {
     ...mapActions([
-      'submitTodo'
+      'submitTodo',
     ]),
 
     addTodo(e) {
-      const self = this
+      const self = this;
       if (e.keyCode === 13) {
-        self.submitTodo('andre')
+        self.submitTodo('andre');
       }
     },
 
     deleteItem(id) {
-      console.log(id);
+      alert(id);
     },
   },
 };
