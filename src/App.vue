@@ -1,14 +1,3 @@
-<style>
-  html,
-  body {
-    height: 100%;
-  }
-
-  body {
-    background: tomato;
-  }
-</style>
-
 <template>
   <div id="app">
     <todolist></todolist>

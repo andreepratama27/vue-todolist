@@ -1,67 +1,3 @@
-<style scoped>
-    .container {
-        width: 90%;
-        margin: 0 auto;
-    }
-
-    label {
-        color: #fff;
-        background-color: #ffcc00;
-        border-radius: .4rem;
-        width: 4rem;
-        margin: 0 auto;
-        text-align: center;
-        margin-top: .8rem;
-    }
-
-    input {
-        margin-top: .8rem;
-        box-shadow: none !important;
-        height: 3.2rem;
-        border-radius: .4rem;
-        background-color: #e24a2e;
-        color: #fff;
-        border: 0;
-    }
-
-    input::-webkit-input-placeholder {
-        color: #fff;
-        font-weight: lighter;
-    }
-
-    input:focus {
-        border-color: #fff;
-    }
-
-    ul {
-        margin: 0;
-        padding: 0;
-        list-style-type: square;
-        display: grid;
-        grid-gap: 20px;
-        grid-template-columns: 1fr;
-    }
-
-    ul li {
-        border-radius: .4rem;
-        height: 3.2rem;
-        display: grid;
-        align-items: center;
-        padding: 0 15px;
-        background-color: #ffcc00;
-        color: #f7f7f7;
-        text-shadow: 0px 1px 0px #333;
-        font-size: 1.4rem;
-    }
-
-    .divider:after {
-        display: block;
-        content: '';
-        border-bottom: 1px dashed #ffcc00;
-        margin: 1.2rem 0;
-    }
-</style>
-
 <template>
     <div class="container">
         <div class="column">
@@ -70,7 +6,8 @@
                     Task
                 </label>
                 <div class="control">
-                    <input type="" class="input" placeholder="Insert a task">
+                    <input v-model="task" type="" class="input" placeholder="Insert a task"
+                    @keydown="addTodo">
                 </div>
             </div>
         </div>
@@ -79,13 +16,52 @@
         </div>
 
         <div class="column">
-            <ul class="item-list">
-                <li class="list">11</li>
-                <li class="list">21</li>
-                <li class="list">31</li>
-                <li class="list">41</li>
-                <li class="list">51</li>
-            </ul>
+            <!-- <ul class="item-list">
+                <li class="list" v-for="(i, keys) in todos" :key="keys">
+                  {{ i.text }}
+
+                  <div class="close" @click="deleteItem(i.id)">
+                    &times;
+                  </div>
+                </li>
+            </ul> -->
         </div>
     </div>
 </template>
+
+<script>
+import { mapGetters, mapActions } from 'vuex'
+
+export default {
+  computed: {
+    ...mapGetters([
+      'todos'
+    ])
+  },
+
+  data() {
+    return {
+      task: '',
+      id: 1,
+    };
+  },
+
+  methods: {
+    ...mapActions([
+      'submitTodo'
+    ]),
+
+    addTodo(e) {
+      const self = this
+      if (e.keyCode === 13) {
+        self.submitTodo('andre')
+      }
+    },
+
+    deleteItem(id) {
+      console.log(id);
+    },
+  },
+};
+</script>
+
