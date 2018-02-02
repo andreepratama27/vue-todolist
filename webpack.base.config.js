@@ -1,6 +1,4 @@
-const config = require('./config')
 const path = require('path')
-const webpack = require('webpack')
 
 module.exports = {
     entry: {
@@ -8,7 +6,7 @@ module.exports = {
     },
 
     output: {
-        path: config.build.assetsRoot,
+        path: path.resolve(__dirname, 'dist'),
         filename: '[name].js',
         // publicPath: process.env.NODE_ENV === 'production'
         //     ? config.build.assetsPublicPath
@@ -35,11 +33,7 @@ module.exports = {
             },
             {
                 test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
-                loader: 'url-loader',
-                options: {
-                  limit: 10000,
-                  name: utils.assetsPath('img/[name].[hash:7].[ext]')
-                }
+                loader: 'url-loader'
             },
             {
                 test: /\.(mp4|webm|ogg|mp3|wav|flac|aac)(\?.*)?$/,
