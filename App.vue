@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="column is-4">
         <todolist></todolist>
     </div>
 </template>
