@@ -1,4 +1,6 @@
 const path = require('path')
+const webpack = require('webpack')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = {
     entry: {
@@ -16,8 +18,13 @@ module.exports = {
     resolve: {
         extensions: ['.js', '.vue'],
         alias: {
+            'vue$': 'vue/dist/vue.esm.js',
             '@': path.resolve(__dirname)
         }
+    },
+
+    devServer: {
+        contentBase: './dist'
     },
 
     module: {
@@ -44,5 +51,13 @@ module.exports = {
                 loader: 'url-loader'
             }
         ]
-    }
+    },
+
+    plugins: [
+        new HtmlWebpackPlugin({
+            filename: 'index.html',
+            template: './index.html',
+            inject: 'body'
+        })
+    ]
 }
